@@ -1,0 +1,29 @@
+import boto.ec2.autoscale
+from boto.ec2.autpscale import launchconfiguration
+from boto.ec2.autoscale import AutoScalingGroup
+from boto.ec2.cloudwatch import MetricAlarm
+from boto.ec2.autoscale import ScalingPolicy
+import bob.ec2.cloudwatch
+
+ACCESS_KEY="<>"
+SECRET_KEY="<>"
+
+REGION="us-east-1"
+AMI_ID="ami-d0f89fb9"
+EC2-KEY-HANDEL="<>"
+INSTANCE_TYPE="t1.micro"
+SECGROUP_HANDEL="default"
+
+print"creating launch configuration"
+
+conn=boto.ec2.autoscale.connect_to_region(REGION,
+      aws_access_key_id=ACCESS_KEY,
+       aws_secret_access_key=SECRET_KEY)
+
+print"Creating launch configuration"
+
+lc=LaunchConfiguration(name='My-Launch-Config-2',
+    image_id=AMI_ID,
+    key_name=EC2_KEY_HANDEL,
+    instance_type=INSTANCE_TYPE,
+    security_groups=[SECGROUP_HANDEL,])
